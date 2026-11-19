@@ -42,11 +42,8 @@ _COOLDOWN_SCENARIOS = [
 
 
 def test_abstract() -> None:
-    class Impl(CameraSource):
-        pass
-
     with pytest.raises(TypeError):
-        Impl()  # type: ignore[reportAbstractUsage]  # intentionally instantiate an abstract class to assert TypeError
+        CameraSource()  # type: ignore[reportAbstractUsage]
 
 
 @pytest.mark.parametrize(("factory", "url", "extra"), _HTTP_CAMERAS)
