@@ -81,19 +81,19 @@ ML-библиотек (onnxruntime, LiteRT) больше не существуе
 (по умолчанию 16 ≈ 3.2 детекции/с).
 
 ```
-╭─Current──fruit_classifier.onnx│USB@640x480│W79>79+UTF8+VT1+COL1──────╮  ← модель, источник, диагностика
-│ ★ Peach  83.7%                                          fps:32  #12  Δ 0.4s │  ← метка + уверенность + метрики
-│  Apple(77%)  Banana(6%)                                     │  ← кандидаты ≥ VIEW_THRESHOLD
-├─ History ──────────────────────────────────────────────────────────────┤
-│Bar                                             %    # Label      Evt    │
-│AAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP   55%   12  Peach,Apple   →↑│  ← буквы = возможные метки, A=Apple, P=Peach
-│AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA   94%   11  Apple        ↑│  ← ↑ = отправлено роботу
+╭─Current──fruit_classifier.onnx│USB@640x480│W79>79+UTF8+VT1+COL1──────────────╮  ← модель, источник, диагностика
+│ ★ Peach  83.7%                                          fps:32  #12  Δ 0.4s  │  ← метка + уверенность + метрики
+│  Apple(77%)  Banana(6%)                                                      │  ← кандидаты ≥ VIEW_THRESHOLD
+├─ History ────────────────────────────────────────────────────────────────────┤
+│Bar                                             %    # Label      Evt         │
+│AAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP   55%   12  Peach,Apple   →↑  │  ← буквы = возможные метки, A=Apple, P=Peach
+│AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA   94%   11  Apple        ↑    │  ← ↑ = отправлено роботу
 │PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP   54%   10  Peach,Banana   ×│  ← × = показано, но НЕ отправлено
 │PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP   53%    9  Peach,Banana   ×│
-│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    ---  ---  ---          │  ← заполнители/ниже VIEW_THRESHOLD
-├─ Stats ────────────────────────────────────────────────────────────────┤
-│ Apple 12  Banana 10  Peach 8                                          │  ← все метки со счётчиками (алфавитно)
-╰────────────────────────────────────────────────────────────────────────╯
+│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    ---  ---  ---           │  ← заполнители/ниже VIEW_THRESHOLD
+├─ Stats ──────────────────────────────────────────────────────────────────────┤
+│ Apple 12  Banana 10  Peach 8                                                 │  ← все метки со счётчиками (алфавитно)
+╰──────────────────────────────────────────────────────────────────────────────╯
 ```
 
 ### Элементы панели
