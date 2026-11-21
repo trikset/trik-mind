@@ -111,7 +111,12 @@ configurations, update this section and the referenced config files
 
 ### Before release
 
-- Gates: 0 open PRs, 0 security alerts, green main CI
+- Gates: 0 open PRs, 0 security alerts, 0 code scanning alerts, green main CI
+- **Security alert resolution**: when dependabot alerts block a release,
+  check the latest available version of the affected package; bump + verify
+  tests → PR → merge → repeat until 0 open alerts. If `first_patched_version`
+  is null, the latest published version may still resolve the CVEs — verify
+  via the `uv run pytest` gate before concluding a fix doesn't exist.
 - **Pre-release review gate**: before tagging, run the aggressive reviewer
   (`review-work` / Momus + Oracle pass) that reads the docs — especially
   guardrails, constraints, app design decisions, and design decisions — and:
@@ -263,6 +268,10 @@ example).
   tripping E501). `locale.py` translation tables are wrapped in `# fmt: off/on`
   to keep key/value pairs hand-split — keep new translations inside those
   guards; do not reformat them with `ruff format .`
+- **When adding jobs to a workflow, include an explicit `permissions:` block
+  for each new job** — GitHub CodeQL for Actions flags jobs without explicit
+  permissions even if a workflow-level default exists. See MEMORY.md
+  "[2026-11-21] Job-level permissions required for CodeQL workflow analysis".
 
 ### Decision-making
 
